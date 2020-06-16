@@ -80,6 +80,11 @@ class ItemsController < ApplicationController
     @item.update(deal: "売り切れ")
     redirect_to item_path(@item), notice: "商品を購入しました"
   end
+  
+  def categories
+    category = Category.find(params[:category_id])
+    @categories = category.children
+  end
 
   private
   def item_params

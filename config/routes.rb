@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'search'
+      get 'categories'
     end
   end
 
