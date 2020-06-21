@@ -1,7 +1,6 @@
 document.addEventListener('turbolinks:load', function () {
   if (!$('#card_form')[0]) return false; //カード登録ページではないなら以降実行しない。
 
-  Payjp.setPublicKey("pk_test_889609e6c174148a15712a30"); //公開鍵を読み込む。
   const regist_button = $("#regist_card"); //カード入力フォームの登録ボタン。
 
   regist_button.on("click", function (e) { //登録ボタンを押したとき（ここはsubmitではなくclickにしておく）。
@@ -10,8 +9,8 @@ document.addEventListener('turbolinks:load', function () {
     const card = {
       number: $("#card_number_form").val(),
       cvc: $("#cvc_form").val(),
-      exp_month: $("#exp_month_form").val(),
-      exp_year: $("#exp_year_form").val() //下②桁ではなく実際の年数を送る必要がある。
+      month: $("#exp_month_form").val(),
+      year: $("#exp_year_form").val() 
     };
 
     Payjp.createToken(card, (status, response) => { //cardをpayjpに送信して登録する。
