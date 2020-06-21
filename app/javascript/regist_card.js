@@ -5,7 +5,6 @@ document.addEventListener('turbolinks:load', function () {
   const regist_button = $("#regist_card"); //カード入力フォームの登録ボタン。
 
   regist_button.on("click", function (e) { //登録ボタンを押したとき（ここはsubmitではなくclickにしておく）。
-    e.preventDefault();
 
     const card = {
       number: $("#card_number_form").val(),
